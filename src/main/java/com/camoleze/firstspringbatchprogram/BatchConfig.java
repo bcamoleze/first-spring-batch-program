@@ -24,11 +24,11 @@ public class BatchConfig {
 	@Autowired private StepBuilderFactory sbf;
 	
 	@Bean
-	public Job imprimeOlaJob() {
+	public Job imprimeOlaJob(Step imprimeOlaStep) {
 		
 		return jbf
 				  .get("imprimeOlaJob")
-				  .start(imprimeOlaStep())
+				  .start(imprimeOlaStep)
 				  .incrementer(new RunIdIncrementer()) //acrescenta um id para cada execução (recurso a ser usado com cuidado)
 				  .build();
 		
